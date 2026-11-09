@@ -1,0 +1,162 @@
+{
+  "artworks": [
+    {
+      "number": 1,
+      "file": "01-painting.webp",
+      "type": "painting",
+      "label": "Painting",
+      "width": 720,
+      "height": 960,
+      "original": {
+        "id": "ornament",
+        "category": "paintings",
+        "source": "591984609630352",
+        "sourcePage": "https://www.facebook.com/photo.php?fbid=591984609630352"
+      }
+    },
+    {
+      "number": 2,
+      "file": "02-painting.webp",
+      "type": "painting",
+      "label": "Painting",
+      "width": 1200,
+      "height": 1501,
+      "original": {
+        "id": "mayon-spirit",
+        "category": "paintings",
+        "sourceKind": "supplied",
+        "source": "515500121_10165151124696756_537811880778389245_n.jpg",
+        "localSource": "artworks/515500121_10165151124696756_537811880778389245_n.jpg"
+      }
+    },
+    {
+      "number": 3,
+      "file": "03-painting.webp",
+      "type": "painting",
+      "label": "Painting",
+      "width": 1200,
+      "height": 636,
+      "original": {
+        "id": "river-dancers",
+        "category": "paintings",
+        "sourceKind": "supplied",
+        "source": "687383954_27460289773554700_5799155980347686010_n.jpg",
+        "localSource": "artworks/687383954_27460289773554700_5799155980347686010_n.jpg"
+      }
+    },
+    {
+      "number": 4,
+      "file": "04-mural.webp",
+      "type": "mural",
+      "label": "Mural",
+      "width": 1200,
+      "height": 900,
+      "original": {
+        "id": "whimsical-room",
+        "category": "murals",
+        "sourceKind": "supplied",
+        "source": "703519392_27628429296740746_5213712226865821306_n.jpg",
+        "localSource": "artworks/703519392_27628429296740746_5213712226865821306_n.jpg"
+      }
+    },
+    {
+      "number": 5,
+      "file": "05-mural.webp",
+      "type": "mural",
+      "label": "Mural",
+      "width": 1200,
+      "height": 1500,
+      "original": {
+        "id": "stories-on-the-wall",
+        "category": "murals",
+        "sourceKind": "supplied",
+        "source": "702899869_27628426993407643_7193918168836132362_n.jpg",
+        "localSource": "artworks/702899869_27628426993407643_7193918168836132362_n.jpg"
+      }
+    },
+    {
+      "number": 6,
+      "file": "06-wearable.webp",
+      "type": "wearable",
+      "label": "Wearable art",
+      "width": 1200,
+      "height": 1493,
+      "original": {
+        "id": "painted-slippers",
+        "category": "wearable",
+        "sourceKind": "supplied",
+        "source": "496753706_24220654374184939_2736980589330554799_n.jpg",
+        "localSource": "artworks/496753706_24220654374184939_2736980589330554799_n.jpg"
+      }
+    },
+    {
+      "number": 7,
+      "file": "07-wearable.webp",
+      "type": "wearable",
+      "label": "Wearable art",
+      "width": 1080,
+      "height": 1070,
+      "original": {
+        "id": "sunflower-steps",
+        "category": "wearable",
+        "sourceKind": "supplied",
+        "source": "516114182_10165159549651756_5832065661698758410_n.jpg",
+        "localSource": "artworks/516114182_10165159549651756_5832065661698758410_n.jpg"
+      }
+    },
+    {
+      "number": 8,
+      "file": "08-object.webp",
+      "type": "object",
+      "label": "Art object",
+      "width": 1161,
+      "height": 1600,
+      "original": {
+        "id": "morning-menagerie",
+        "category": "objects",
+        "sourceKind": "supplied",
+        "source": "515500497_24644351255148580_3085777436919094112_n.jpg",
+        "localSource": "artworks/515500497_24644351255148580_3085777436919094112_n.jpg"
+      }
+    },
+    {
+      "number": 9,
+      "file": "09-object.webp",
+      "type": "object",
+      "label": "Art object",
+      "width": 982,
+      "height": 1600,
+      "original": {
+        "id": "quiet-reverie",
+        "category": "objects",
+        "sourceKind": "supplied",
+        "source": "472670086_1002002481961894_642596763993595758_n.jpg",
+        "localSource": "artworks/472670086_1002002481961894_642596763993595758_n.jpg"
+      }
+    },
+    {
+      "number": 10,
+      "file": "10-object.webp",
+      "type": "object",
+      "label": "Art object",
+      "width": 1200,
+      "height": 1489,
+      "original": {
+        "id": "coasters-in-colour",
+        "category": "objects",
+        "sourceKind": "supplied",
+        "source": "720031983_1319131579725917_1979227236521850709_n.jpg",
+        "localSource": "artworks/720031983_1319131579725917_1979227236521850709_n.jpg"
+      }
+    }
+  ],
+  "logo": {
+    "source": "artworks/516438245_24645649325018773_4646264841571488169_n.jpg",
+    "method": "Image editing extraction of the eye-and-lettering mark from the supplied merchandise photo; derived raster, not an original vector master.",
+    "publicFile": "public/assets/djai-logo.webp",
+    "width": 360,
+    "height": 350,
+    "sha256": "e30fa1ef24f242aa2c89df75203cf9dc525bef1073ca0efb29803b4e835fcc7f",
+    "research": "Public profile photos did not supply a standalone logo. No unrelated profile photograph was used as a logo."
+  }
+}

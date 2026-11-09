@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.local-data/
+*.sqlite*
+*.zip
+*.bak
+qa/
+gohighlevel/
+gohighlevel-simulation.html
+.taste-skill/
