@@ -24,6 +24,17 @@ node tools/prepare-assets.mjs
 
 `index.html`, `styles.css`, `script.js` and `images/` are the standalone runtime files. Source templates and helpers are retained so the page is maintainable. Builder handoff output, private records, downloaded archives and delivery ZIPs are excluded from source history.
 
+## Check the source
+
+```powershell
+node tools/prepare-assets.mjs
+node tools/verify.mjs
+```
+
+The verifier creates its own ignored temporary QA directory, checks the ten-image catalog, source references and builder URL mapping, and rejects missing/unsafe media maps. It also writes ignored preview output. No existing QA folder, browser profile or source archive is required.
+
+See [the case study](docs/CASE_STUDY.md) for the scope, verification evidence and remaining browser checks. Passing these checks does not certify accessibility or a live deployment.
+
 ## Artwork and font credits
 
 Artwork belongs to the artist. The public portfolio use was approved for this project. `reference/asset-provenance.json` records image origins, and `reference/artwork-data.json` is the selected image catalog. DM Sans and Fraunces notices are preserved under `reference/licenses/`; embedded font data is already included in the source. This repository does not grant a new blanket license over the artwork.

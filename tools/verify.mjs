@@ -6,9 +6,12 @@ test('One page, no old routes or backend/form',()=>{assert.equal((body.match(/<m
 test('Ten gallery captions contain category only',()=>{const captions=[...body.matchAll(/class="art-caption"><span>([^<]+)<\/span>/g)].map(m=>m[1]);assert.equal(captions.length,10);assert(captions.every(x=>['Painting','Mural','Wearable art','Art object'].includes(x)));assert(!/[✦✳]/.test(body));});
 test('Local image paths exist, no extra artwork dependency',()=>{for(const m of body.matchAll(/src="(images\/[^"?]+)"/g))assert(fs.existsSync(path.join(root,m[1])));const paths=[...new Set([...body.matchAll(/src="(images\/[^"?]+)"/g)].map(m=>m[1]))];assert.equal(paths.length,10);assert(body.includes('data:image/webp;base64,'));});
 test('CSV supports quoted commas, query strings and Excel line endings',()=>{assert.deepEqual(parseCSV('filename,public_url\r\n"a.webp","https://cdn.test/a.webp?x=1,2&y=3"\r\n'),[['filename','public_url'],['a.webp','https://cdn.test/a.webp?x=1,2&y=3']]);});
-const scratch=fs.mkdtempSync(path.join(root,'qa','.mapping-test-'));
+const qaRoot=path.join(root,'qa');fs.mkdirSync(qaRoot,{recursive:true});
+const scratch=fs.mkdtempSync(path.join(qaRoot,'.mapping-test-'));
+if(!path.resolve(scratch).startsWith(path.resolve(qaRoot)+path.sep))throw new Error('Scratch folder escaped the verification directory.');
 try{
- test('Release refuses missing media URLs',()=>assert.throws(()=>build({release:true,outDir:path.join(scratch,'missing')}),/image URLs missing/));
+ const emptyMap=path.join(scratch,'empty-map.csv');fs.writeFileSync(emptyMap,'filename,public_url\n'+data.map(a=>`${a.file},`).join('\n'));
+ test('Release refuses missing media URLs',()=>assert.throws(()=>build({release:true,mapPath:emptyMap,outDir:path.join(scratch,'missing')}),/image URLs missing/));
  const map=path.join(scratch,'map.csv');fs.writeFileSync(map,'filename,public_url\n'+data.map(a=>`${a.file},https://cdn.test/djai/${a.file}?v=1&test=2`).join('\n'));
  test('Release maps hero/gallery/details; viewer reads mapped gallery sources',()=>{const result=build({release:true,mapPath:map,outDir:path.join(scratch,'release')});assert(!result.files['01-HOME-CUSTOM-HTML.html'].includes('src="images/'));for(const a of data)assert(result.files['01-HOME-CUSTOM-HTML.html'].includes(a.file+'?v=1&amp;test=2'));assert(runtime.includes("src:img.getAttribute('src')"));assert(!/<(?:html|head|body)\b/i.test(result.files['01-HOME-CUSTOM-HTML.html']));});
  test('Release rejects wrong, duplicate and unsafe URL rows',()=>{const base='filename,public_url\n'+data.map(a=>`${a.file},https://cdn.test/${a.file}`).join('\n');for(const text of [base+'\n01-painting.webp,https://cdn.test/again',base.replace('https://cdn.test/01-painting.webp','javascript:alert(1)'),base.replace('01-painting.webp,','unknown.webp,')]){fs.writeFileSync(map,text);assert.throws(()=>build({release:true,mapPath:map,outDir:path.join(scratch,'bad')}));}});
